@@ -95,19 +95,19 @@ public class NetUtils {
         String url = NetConfig.CREATE_MENU_URL.replace("ACCESS_TOKEN", accessToken.getAccess_token());
 
         ViewButton button1 = new ViewButton();
-        button1.setType(MessageUtils.MESSAGE_EVENT_CLICK);
+        button1.setType(MessageUtils.MESSAGE_EVENT_VIEW);
         button1.setName("预约看房");
-        button1.setUrl("");
+        button1.setUrl("http://www.soso.com/");
 
         ViewButton button2 = new ViewButton();
         button2.setType(MessageUtils.MESSAGE_EVENT_VIEW);
         button2.setName("我的");
-        button2.setUrl("");
+        button2.setUrl("http://www.baidu.com/");
 
         ViewButton button31 = new ViewButton();
         button31.setType(MessageUtils.MESSAGE_EVENT_VIEW);
         button31.setName("优惠券");
-        button31.setUrl("");
+        button31.setUrl("http://www.qq.com/");
 
         ClickButton button32 = new ClickButton();
         button32.setType(MessageUtils.MESSAGE_EVENT_CLICK);
@@ -120,7 +120,7 @@ public class NetUtils {
         button33.setKey("33");
 
         Button button3 = new Button();
-        button3.setName("菜单三");
+        button3.setName("更多");
         button3.setSub_button(new Button[]{button31,button32,button33});
 
         Menu menu = new Menu();
