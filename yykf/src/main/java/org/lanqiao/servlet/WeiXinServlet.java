@@ -54,8 +54,11 @@ public class WeiXinServlet extends HttpServlet {
                     message = MessageUtils.getMessage(fromUserName,toUserName,MessageUtils.subscribeText());
                 }
             }
+            out.write(message);
         } catch (DocumentException e) {
             e.printStackTrace();
+        }finally {
+            out.close();
         }
     }
 }
