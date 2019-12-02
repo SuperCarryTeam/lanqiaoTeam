@@ -5,6 +5,8 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.lanqiao.bean.Image;
+import org.lanqiao.bean.ImageMessage;
 import org.lanqiao.bean.TextMessage;
 
 import javax.servlet.ServletInputStream;
@@ -20,6 +22,7 @@ public class MessageUtils {
     public static final String MESSAGE_EVENT_SUBSCRIBE = "subscribe";
     public static final String MESSAGE_EVENT_CLICK= "click";
     public static final String MESSAGE_EVENT_VIEW= "view";
+    public static final String MESSAGE_IMAGE = "image";
 
     public static Map<String , String> xml2Map(HttpServletRequest request) throws IOException, DocumentException {
         Map<String , String> map = new HashMap<>();
@@ -67,4 +70,28 @@ public class MessageUtils {
         return sb.toString();
     }
 
+    /*
+   将图片消息转成xml
+    */
+    public static String image2XML(ImageMessage message){
+        XStream xStream = new XStream();
+        xStream.alias("xml",ImageMessage.class);
+        xStream.alias("Image", Image.class);
+
+        return xStream.toXML(message);
+    }
+
+    public static String initImageMessage(String fromUserName , String toUserName){
+        Image image = new Image();
+        image.setMediaId("HVHSAz812qPTVVtQMKYD-Dl-sPhbqHdqPBNVOtNTZcM");
+
+        ImageMessage message = new ImageMessage();
+        message.setFromUserName(toUserName);
+        message.setToUserName(fromUserName);
+        message.setImage(image);
+        message.setCreateTime(new Date().getTime()+"");
+        message.setMsgType(MESSAGE_IMAGE);
+
+        return image2XML(message);
+    }
 }
