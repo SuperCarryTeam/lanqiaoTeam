@@ -65,6 +65,10 @@ public class WeiXinServlet extends HttpServlet {
                                 "1937489099@qq.com，邮件注明商务合作与介绍。我们看到后会第一时间联系您。");
                             System.out.println(message);
                     }
+                    else if(eventKey.equals("33")){
+                        //点击加入我们
+                        message = MessageUtils.initImageMessage(fromUserName,toUserName);
+                    }
                 }
             }
 
