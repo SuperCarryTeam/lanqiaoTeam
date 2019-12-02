@@ -2,6 +2,7 @@ package org.lanqiao.servlet;
 
 import org.dom4j.DocumentException;
 import org.lanqiao.config.APP;
+import org.lanqiao.utils.MessageUtils;
 import org.lanqiao.utils.NetUtils;
 import org.lanqiao.utils.WeiXinUtils;
 
@@ -23,9 +24,7 @@ public class WeiXinServlet extends HttpServlet {
         String nonce = req.getParameter("nonce");
         String echostr = req.getParameter("echostr");
 
-
         //将token、timestamp、nonce三个参数进行字典序排序
-
         String signature1 = WeiXinUtils.checkSignature(APP.WXTOKEN, timestamp, nonce);
 
         if(signature1.equals(signature)){
@@ -36,27 +35,25 @@ public class WeiXinServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
-        req.setCharacterEncoding("utf-8");
         resp.setContentType("textml;charset=utf-8");
         PrintWriter out = resp.getWriter();
-        String message=null;
-        //将xml转换为map
-        Map<String, String> map = null;
-        try {
-            map = NetUtils.xml2Map(req);
-            System.out.println("map"+map);
-            String fromUserName = map.get("FromUserName");
-            String toUserName = map.get("ToUserName");
 
-            String event = map.get("Event");
-            if(NetUtils.MESSAGE_EVENT.equals(map.get("MsgType"))) {
-                if (NetUtils.MESSAGE_SUBSCRIBE.equals(event)) {
-                    message = NetUtils.getMessage(fromUserName,toUserName,NetUtils.subscribeText());
+        //将xml转换为map
+        try {
+            String message=null;
+            Map<String, String> map = MessageUtils.xml2Map(req);
+            String toUserName = map.get("ToUserName");
+            String fromUserName = map.get("FromUserName");
+            String msgType = map.get("MsgType");
+
+            if(MessageUtils.MESSAGE_EVENT.equals(msgType)){
+                //事件
+                String event = map.get("Event");
+                if(MessageUtils.MESSAGE_EVENT_SUBSCRIBE.equals(event)){
+                    //订阅事件
+                    message = MessageUtils.getMessage(fromUserName,toUserName,MessageUtils.subscribeText());
                 }
             }
-            out.print(message);
-
-
         } catch (DocumentException e) {
             e.printStackTrace();
         }
