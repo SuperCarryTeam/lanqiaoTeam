@@ -120,7 +120,7 @@ public class NetUtils {
         button33.setKey("33");
 
         Button button3 = new Button();
-        button3.setName("菜单三");
+        button3.setName("更多");
         button3.setSub_button(new Button[]{button31,button32,button33});
 
         Menu menu = new Menu();
