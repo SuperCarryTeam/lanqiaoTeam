@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>注册</title>
+    <link rel="stylesheet" href="layui/css/layui.css"/>
+    <script src="js/jquery-3.4.1.js"></script>
+    <!--注意导入顺序-->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        /* 设置背景图，字体设置为微软雅黑 */
+        body{
+            background:url(../../img/bj.jpg);
+            font-family: "方正仿宋", sans-serif;
+        }
+        /* 整个登录框的css，并使用绝对定位居中 */
+        .login {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -150px 0 0 -150px;
+            width:300px;
+            height:300px;
+            background: rgba(0,0,0, 0.7);
+            border-radius:5px;
+        }
+        .login h1 {
+            color:white;
+            letter-spacing:2px;
+            text-align:center;
+            margin-top: 30px;
+            margin-bottom:20px;
+        }
+        #phoneNum{
+            padding:10px;
+            width:90%;
+            color:white;
+            margin-bottom:10px;
+            background-color:transparent;
+            border: 1px solid white;
+            margin-top: 20px;
+            margin-left: 16px;
+            border-radius:4px;
+            letter-spacing:2px;
+        }
+        #verifyCode{
+            padding:10px;
+            width:60%;
+            color:white;
+            margin-left: 16px;
+            margin-top: 30px;
+            background-color:transparent;
+            border: 1px solid white;
+            border-radius:4px;
+            letter-spacing:2px;
+            float: left
+        }
+        #btn{
+            width:28%;
+            background-color:transparent;
+            border:1px solid white;
+            border-radius:4px;
+            cursor:pointer;
+            color:white;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+            margin-top: 30px;
+            height: 38px;
+        }
+        #qr{
+            width:90%;
+            background-color:transparent;
+            border:1px solid white;
+            border-radius:4px;
+            cursor:pointer;
+            color:white;
+            margin-left: 16px;
+            margin-top: 30px;
+            align:center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="login">
+    <h1>用户注册</h1>
+<form class="layui-form" action="http://localhost:8080/lanqiao1124/RegisterServlet?key=1" method="post">
+    <div class="layui-form-item">
+<!--        <label class="layui-form-label">手机号</label>-->
+        <input  type="text" name="phoneNum" id="phoneNum" required lay-verify="required" placeholder="请输手机号" autocomplete="off" class="layui-input" >
+<!--        <label class="layui-form-label">验证码</label>-->
+        <input type="password" name="verifyCode" id="verifyCode" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+        <input type="button" id="btn" class=" layui-btn-radius layui-btn-normal" value="获取验证码" onclick="aaa()"/>
+        <button id="qr" class="layui-btn" type="submit" >注册</button>
+    </div>
+
+</form>
+
+</div>
+<script src="js/chuan.js"></script>
+
+<script>
+
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
