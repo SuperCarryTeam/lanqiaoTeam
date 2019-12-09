@@ -9,7 +9,8 @@ import java.util.Map;
 public class getrominfo {
 
     public static void yuyuekanfang(){
-        675
+        
+        //暂时空白
     }
 
 }
