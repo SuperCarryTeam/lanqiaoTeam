@@ -27,6 +27,7 @@ public class VerificationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(111);
         String phoneNum = req.getParameter("phoneNum");
 
         //生成验证码
