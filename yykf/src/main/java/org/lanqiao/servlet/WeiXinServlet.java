@@ -2,6 +2,7 @@ package org.lanqiao.servlet;
 
 import org.dom4j.DocumentException;
 import org.lanqiao.config.APP;
+import org.lanqiao.service.userService;
 import org.lanqiao.utils.MessageUtils;
 import org.lanqiao.utils.NetUtils;
 import org.lanqiao.utils.WeiXinUtils;
@@ -47,6 +48,7 @@ public class WeiXinServlet extends HttpServlet {
             String toUserName = map.get("ToUserName");
             String fromUserName = map.get("FromUserName");
             String msgType = map.get("MsgType");
+
 
             System.out.println(map);
             if(MessageUtils.MESSAGE_EVENT.equals(msgType)){
