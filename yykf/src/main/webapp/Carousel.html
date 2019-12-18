@@ -1,0 +1,100 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <script src="./jquery/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="./layui/layui.js" charset="utf-8"></script>
+
+
+    <title>逸仙居</title>
+</head>
+</head>
+
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+<!--    <center><legend>房源类型</legend></center>-->
+</fieldset>
+
+<center><div class="layui-carousel" id="test1" lay-filter="test1">
+    <div carousel-item="" >
+        <div><img src="./img/C.jpg" style="width: 100%;height: 100%;"></div>
+        <div><img src="./img/C.jpg" style="width: 100%;height: 100%;"></div>
+        <div><img src="./img/C.jpg" style="width: 100%;height: 100%;"></div>
+        <div><img src="./img/C.jpg" style="width: 100%;height: 100%;"></div>
+        <div><img src="./img/C.jpg" style="width: 100%;height: 100%;"></div>
+        <div><img src="./img/C.jpg" style="width: 100%;height: 100%;"></div>
+
+
+    </div>
+
+</div></center>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+    <legend>房源类型</legend>
+</fieldset>
+<div class="layui-card"  style="width: 100%;height: 100%;">
+    <!--        <center><div class="layui-card-header" >-&#45;&#45;租房-&#45;&#45;</div></center>-->
+    <div class="layui-card-body">
+        <center><div class="layui-btn-container" style="width: 450px;height: 480px;">
+            <button class="layui-btn layui-btn-primary layui-btn-lg">大型按钮</button>
+            <button class="layui-btn layui-btn-primary">默认按钮</button>
+            <button class="layui-btn layui-btn-primary layui-btn-sm">小型按钮</button>
+            <button class="layui-btn layui-btn-primary layui-btn-xs">迷你按钮</button>
+
+            <br>
+
+            <button class="layui-btn layui-btn-lg">大型按钮</button>
+            <button class="layui-btn">默认按钮</button>
+            <button class="layui-btn layui-btn-sm">小型按钮</button>
+            <button class="layui-btn layui-btn-xs">迷你按钮</button>
+
+            <br>
+
+            <button class="layui-btn layui-btn-lg layui-btn-normal">大型按钮</button>
+            <button class="layui-btn layui-btn-normal">默认按钮</button>
+            <button class="layui-btn layui-btn-sm layui-btn-normal">小型按钮</button>
+            <button class="layui-btn layui-btn-xs layui-btn-normal">迷你按钮</button>
+        </div></center>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    layui.use(['carousel', 'form'], function(){
+        var carousel = layui.carousel
+            ,form = layui.form;
+
+        //常规轮播
+        //图片轮播
+        carousel.render({
+            elem: '#test1'
+            ,width: '778px'
+            ,height: '440px'
+            ,interval:3000
+            ,arrow: 'always'
+        });
+        //改变下时间间隔、动画类型、高度
+        carousel.render({
+            elem: '#test2'
+            ,interval: 1800
+            ,anim: 'fade'
+            ,height: '120px'
+        });
+        //图片轮播
+        carousel.render({
+            elem: '#test10'
+            ,width: '778px'
+            ,height: '440px'
+            ,interval: 20000
+        });
+
+    });
+
+
+</script>
+</body>
+
+</html>

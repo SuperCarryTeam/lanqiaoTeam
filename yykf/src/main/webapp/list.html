@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看用户信息</title>
+    <link rel="stylesheet" href="layui/css/layui.css"/>
+</head>
+<body>
+<div id="vueTable">
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th width="20%">id</th>
+            <th width="20%">名称</th>
+            <th width="20%">电话号码</th>
+            <th width="20%">地址</th>
+<!--            <th width="20%">颜色</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in products">
+            <td>{{item.pid}}</td>
+            <td>{{item.nickname}}</td>
+            <td>{{item.phonenumber}}</td>
+            <td>{{item.site}}</td>
+<!--            <td>{{item.pcolor}}</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- 分页容器 -->
+<div id="pagecontainer"></div>
+<script src="js/Vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="layui/layui.js" media="all"></script>
+<script src="jquery/jquery-3.4.1.js"></script>
+<script src="js/list.js"></script>
+</body>
+</html>
